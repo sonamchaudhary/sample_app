@@ -3,26 +3,29 @@ import 'package:flutter/material.dart';
 import './components/card_component.dart';
 import './components/add_post.dart';
 import './components/list_card.dart';
+import './components/drawer.dart';
 
 class MyHomePage extends StatefulWidget {
-  // MyHomePage({Key key, this.title}) : super(key: key);
-
-  // final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-
 class _MyHomePageState extends State<MyHomePage> {
- 
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.ac_unit),
-          onPressed: () {},
+        leading: GestureDetector(
+          onTap: () {
+            _scaffoldKey.currentState.openDrawer();
+          },
+          child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/dummy.jpg'),
+              )),
         ),
         actions: <Widget>[
           Container(
@@ -50,23 +53,28 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
+      drawer: DrawerComponent(),
       body: Container(
-        color: Colors.grey[350],
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Text(
-                'Get started in 3 steps.',
-                style: TextStyle(fontSize: 16.0),
+        height: 800.0,
+          color: Colors.grey[350],
+          child: ListView(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  'Get started in 3 steps.',
+                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            CardComponent(),
-            AddPostComponent(),
-            ListCardComponent(),
-          ],
-        ),
-      ),
+              CardComponent(),
+              // Container(
+              //   height: 10.0,
+              // ),
+              AddPostComponent(),
+              ListCardComponent(),
+            ],
+          )
+          ),
       // floatingActionButton: FloatingActionButton(
       //   onPressed:(){},
       //   tooltip: 'Increment',
