@@ -25,7 +25,9 @@ class DrawerComponent extends StatelessWidget {
           ),
           ListTile(
             title: const Text('View Profile',style: TextStyle(fontSize: 17.0),),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, '/profile');
+            },
           ),
           ListTile(
             title: const Text('Discover more',style: TextStyle(fontSize: 17.0),),

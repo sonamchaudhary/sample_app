@@ -55,9 +55,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: DrawerComponent(),
       body: Container(
-        height: 800.0,
           color: Colors.grey[350],
           child: ListView(
+            shrinkWrap: true,
+            // padding: const EdgeInsets.all(20.0),
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.all(10.0),
@@ -67,14 +68,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               CardComponent(),
-              // Container(
-              //   height: 10.0,
-              // ),
+              Container(
+                height: 10.0,
+              ),
               AddPostComponent(),
               ListCardComponent(),
             ],
-          )
-          ),
+          )),
       // floatingActionButton: FloatingActionButton(
       //   onPressed:(){},
       //   tooltip: 'Increment',
