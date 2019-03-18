@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './homepage.dart';
 import './profilePage.dart';
+import './productDetail.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
        routes: <String, WidgetBuilder> {
       '/profile': (BuildContext context) => MyProfilePage(),
       '/homepage': (BuildContext context) => MyHomePage(),
+      '/productDetail':(BuildContext context) => ProductDetailPage('hello', 'hfjjjj', 'fdjjhhhjhkhjhgjh'),
       // '/c': (BuildContext context) => MyPage(title: 'page C'),
     },
       title: 'Flutter Demo',

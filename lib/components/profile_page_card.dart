@@ -1,6 +1,36 @@
 import 'package:flutter/material.dart';
 
-class ProfilePageCard extends StatelessWidget {
+class ProfilePageCard extends StatefulWidget {
+  @override
+  ProfilePageCardState createState() => new ProfilePageCardState();
+}
+
+class ProfilePageCardState extends State<ProfilePageCard> {
+
+  String _emailid = 'chaudharysonam17@gmail.com';
+  String _name = 'Sonam Chaudhary';
+  int _age = 24;
+  String _qualification10 = 'punjab university';
+  String _qualification12 = 'Non-medical';
+  String _qualification_grads = 'Btech(ECE)';
+
+  _editEmailDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+              title: Text('your email-id'), content: TextField(
+                onSubmitted:(String value){
+               _emailid =value;
+              },),
+             actions: <Widget>[FlatButton(child: Text('Submit'),
+              onPressed:() {
+                Navigator.pop(context);
+              },)],
+              );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -20,7 +50,7 @@ class ProfilePageCard extends StatelessWidget {
             ),
           ),
           Container(
-              padding: EdgeInsets.symmetric(horizontal: 15.0),
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Column(
                 children: <Widget>[
                   Row(
@@ -37,12 +67,19 @@ class ProfilePageCard extends StatelessWidget {
                           Icons.edit,
                           color: Colors.blueGrey,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          _editEmailDialog(context);
+                        },
                       )
                     ],
                   ),
                   Row(
-                    children: <Widget>[Text('chaudharysonam17@gmail.com',style: TextStyle(color: Colors.blueGrey),)],
+                    children: <Widget>[
+                      Text(
+                        '$_emailid',
+                        style: TextStyle(color: Colors.blueGrey),
+                      )
+                    ],
                   )
                 ],
               )),
@@ -60,7 +97,10 @@ class ProfilePageCard extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                Text('Sonam Chaudhary',style: TextStyle(color: Colors.blueGrey),),
+                Text(
+                  '$_name',
+                  style: TextStyle(color: Colors.blueGrey),
+                ),
                 Spacer(),
                 IconButton(
                   icon: Icon(Icons.edit, color: Colors.blueGrey),
@@ -80,7 +120,10 @@ class ProfilePageCard extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                Text('24',style: TextStyle(color: Colors.blueGrey),),
+                Text(
+                  '$_age',
+                  style: TextStyle(color: Colors.blueGrey),
+                ),
                 Spacer(),
                 IconButton(
                   icon: Icon(Icons.edit, color: Colors.blueGrey),
@@ -89,7 +132,7 @@ class ProfilePageCard extends StatelessWidget {
               ],
             ),
           ),
-               Container(
+          Container(
               padding: EdgeInsets.symmetric(horizontal: 15.0),
               child: Column(
                 children: <Widget>[
@@ -111,17 +154,57 @@ class ProfilePageCard extends StatelessWidget {
                       )
                     ],
                   ),
-                  Row(
-                    children: <Widget>[Text('chaudharysonam17@gmail.com',
-                    style: TextStyle(color: Colors.blueGrey),)],
-                  ),
-                  Row(
-                    children: <Widget>[Text('chaudharysonam17@gmail.com',
-                    style: TextStyle(color: Colors.blueGrey),)],
-                  ),
-                  Row(
-                    children: <Widget>[Text('chaudharysonam17@gmail.com',
-                    style: TextStyle(color: Colors.blueGrey),)],
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Text(
+                              '10th:',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                            Spacer(),
+                            Text(
+                              ' $_qualification10',
+                              style: TextStyle(color: Colors.blueGrey),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Text(
+                              '12th:',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                            Spacer(),
+                            Text(
+                              '$_qualification12',
+                              style: TextStyle(color: Colors.blueGrey),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Text(
+                              'Graduation:',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                            Spacer(),
+                            Text(
+                              '$_qualification_grads',
+                              style: TextStyle(color: Colors.blueGrey),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   )
                 ],
               )),

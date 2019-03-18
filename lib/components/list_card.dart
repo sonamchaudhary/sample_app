@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ListCardComponent extends StatelessWidget {
+  @override
+   String title = 'here comes Title: any length.';
+   String sub_title = '-here will come the sub-title';
+   String description = 'here comes description : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+
+// ListCardComponent(this.title ,  this.sub_title , this.description);
+
   Widget build(BuildContext context) {
     return Container(
         height: 435.0,
@@ -8,7 +15,9 @@ class ListCardComponent extends StatelessWidget {
           itemCount: 5,
           itemBuilder:(BuildContext context, int index) {
             return GestureDetector(
-              onTap: () {},
+              onTap: () {
+                  Navigator.pushNamed(context, '/productDetail');
+              },
               child: Card(
                 margin: EdgeInsets.only(top: 10.0),
                 child: Container(
@@ -17,11 +26,11 @@ class ListCardComponent extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'here comes Title: any length.',
+                        '$title',
                         style: TextStyle(
                             fontSize: 18.0, fontWeight: FontWeight.w800),
                       ),
-                      Text('-here will come the sub-title',
+                      Text('$sub_title',
                           style: TextStyle(
                               fontSize: 15.0, )),
                       Text(
@@ -31,7 +40,7 @@ class ListCardComponent extends StatelessWidget {
                             fontWeight: FontWeight.w600),
                       ),
                       Text(
-                          'here comes description : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '),
+                          '$description'),
                       SizedBox(
                         height: 10.0,
                       ),
