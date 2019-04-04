@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 class DrawerComponent extends StatelessWidget {
   @override
-  @override
-  Widget build(BuildContext context) {
+   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         children: <Widget>[

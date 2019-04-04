@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import './components/card_component.dart';
 import './components/add_post.dart';
 import './components/list_card.dart';
 import './components/drawer.dart';
+import './components/bottom_bar.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -55,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: DrawerComponent(),
       body: Container(
+        height: 1500,
           color: Colors.grey[350],
           child: ListView(
             shrinkWrap: true,
@@ -67,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                 ),
               ),
-              CardComponent(),
+              // CardComponent(),
               Container(
                 height: 10.0,
               ),
@@ -75,11 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ListCardComponent(),
             ],
           )),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed:(){},
-      //   tooltip: 'Increment',
-      //   child: Icon(Icons.add),
-      // ),
+      bottomNavigationBar: BottomBarComponent()
     );
   }
 }
