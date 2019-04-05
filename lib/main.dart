@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
        routes: <String, WidgetBuilder> {
       '/profile': (BuildContext context) => MyProfilePage(),
       '/homepage': (BuildContext context) => MyHomePage(),
-      '/productDetail':(BuildContext context) => ProductDetailPage('hello', 'hfjjjj', 'fdjjhhhjhkhjhgjh'),
+      '/productDetail':(BuildContext context) => ProductDetailPage('', '', '', ''),
       // '/c': (BuildContext context) => MyPage(title: 'page C'),
     },
       title: 'Flutter Demo',

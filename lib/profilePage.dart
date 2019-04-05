@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 import './components/profile_page_card.dart';
 import './components/bottom_bar.dart';
-// import 'package:badges/badges.dart';
 
 class MyProfilePage extends StatelessWidget {
+
+   String name='sonam chaudhary';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,14 +26,14 @@ class MyProfilePage extends StatelessWidget {
                 ),
                 Expanded(
                   child: TextFormField(
-                    decoration: InputDecoration(hintText: 'Search'),
+                    decoration: InputDecoration(hintText: '$name'),
                   ),
                 ),
               ],
             ),
           ),
           IconButton(
-            icon: Icon(Icons.account_box),
+            icon: Icon(Icons.settings),
             onPressed: () {},
           )
         ],
@@ -67,11 +69,10 @@ class MyProfilePage extends StatelessWidget {
                   radius: 80.0,
                 ),
                  Container(
-                   alignment:Alignment(0.2,2.3) ,
+                   alignment:Alignment(0.22,3.3) ,
                   child: CircleAvatar(
-                    backgroundColor: Colors.green,
-                  // backgroundImage: AssetImage('assets/dummy.jpg'),
-                  radius: 8.0,
+                    backgroundColor: Colors.green[400],
+                    radius: 10.0,
                 ),
                 ),
               ],
@@ -79,6 +80,39 @@ class MyProfilePage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(bottom: 20.0),
             ),
+            Text('$name',style: TextStyle(color: Colors.black,fontSize: 24.0),),
+            Text('--',style: TextStyle(color: Colors.black,fontSize: 34.0),),
+            Row(mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+               Text('India',style:TextStyle(fontSize: 16.0),),
+               SizedBox(width: 4.0,),
+               Icon(Icons.lens,size:6.0,),
+               SizedBox(width: 4.0,),
+               Text('15',style: TextStyle(fontSize: 16.0),),
+               SizedBox(width: 8.0,),
+               Icon(Icons.group , color: Colors.grey[700],)
+            ],),
+            Divider(color: Colors.black),
+            Row(mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Stack(alignment: Alignment(0.0, 10.0),
+                  children: <Widget>[
+                  Container(alignment:Alignment(0.5,-0.10),child: CircleAvatar(
+                  backgroundImage: AssetImage('assets/dummy.jpg'),
+                  radius: 12.0,
+                ) ,),
+                  Container(alignment:Alignment(0.0, -0.20),child: CircleAvatar(
+                  backgroundImage: AssetImage('assets/dummy.jpg'),
+                  radius: 12.0,
+                ) ,),
+                 Container(alignment:Alignment(0.0,-0.30),child: CircleAvatar(
+                  backgroundImage: AssetImage('assets/dummy.jpg'),
+                  radius: 12.0,
+                ) ,),
+                 ],),
+                 SizedBox(width:8.0,),
+                Text('See all connections',style: TextStyle(fontSize:16.0,fontWeight: FontWeight.bold),)
+              ],),
             Container(
               height: 400.0,
               width: 360.0,

@@ -9,13 +9,11 @@ class ListCardComponent extends StatefulWidget {
 }
 
 class ListCardComponentState extends State<ListCardComponent> {
-// Map<String, dynamic> posts ={};
   String title = 'Aryan yusaf Salman Zorbian.';
   String subTitle = 'President at Global Champ';
   String description =
-      'here comes description : Lorem ipsum dolor aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
-
-// ListCardComponent(this.title ,  this.sub_title , this.description);
+      'here comes description : Lorem ipsum dolor aliqua.tempor incididunt ut labore et dolore magna aliqua.';
+  String comment = ' Very nice post';    
 
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +27,7 @@ class ListCardComponentState extends State<ListCardComponent> {
                   context,
                   MaterialPageRoute(
                     builder: (BuildContext context) => ProductDetailPage(
-                        this.title, this.subTitle, this.description),
+                        this.title, this.subTitle, this.description, this.comment),
                   ),
                 );
               },
